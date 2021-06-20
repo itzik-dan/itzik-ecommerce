@@ -61,7 +61,6 @@ const CheckoutItem = ({
           >
             Remove from Cart
           </button>
-          <ToastContainer position="top-center" autoClose={2000} />
         </div>
       </div>
     </div>
