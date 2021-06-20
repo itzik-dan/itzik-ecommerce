@@ -2,11 +2,13 @@ import Head from "next/head";
 import Header from "../components/Header";
 import ProductCarousel from "../components/ProductCarousel";
 import Products from "../components/Products";
+import { ToastContainer } from "react-toastify";
+
 
 export default function Home({productList}) {
   
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-400">
       <Head>
         <title>Itzik Ecommerce</title>
       </Head>
@@ -18,6 +20,7 @@ export default function Home({productList}) {
         {/* Product List */}
         <Products  productList={productList} />
       </main>
+      <ToastContainer position="top-center" autoClose={2000} />
     </div>
   );
 }

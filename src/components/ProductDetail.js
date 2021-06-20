@@ -4,30 +4,33 @@ import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slices/cartSlice";
 
 const ProductDetail = ({ id, title, price, description, category, image }) => {
+  const dispatch = useDispatch();
   // Generating random ranking star number
   const [rating] = useState(Math.floor(Math.random() * 5) + 1);
 
-  const addToCart = () => {
-    // const product = {
-    //   id,
-    //   title,
-    //   rating,
-    //   hasPrime,
-    //   price,
-    //   description,
-    //   category,
-    //   image,
-    // };
+  // Once click on product this function will add item to card through redux store
+  const addCartItem = () => {
+    const product = {
+      id,
+      title,
+      rating,
+      price,
+      description,
+      category,
+      image,
+    };
 
-    // // Sending the product as an action to the REDUX store... the bakset slice
-    // dispatch(addToBasket(product));
+    // Sending the product as an action to the REDUX store
+    dispatch(addToCart(product));
     toast.success("Item added to cart!");
   };
 
   return (
-    <div className="relative flex flex-col z-10 p-10 m-5 bg-white ">
+    <div className="relative rounded-lg flex flex-col z-10 p-10 m-5 bg-white">
       <p className="absolute top-2 left-2 text-sm italic text-gray-600">
         {category}
       </p>
@@ -51,12 +54,11 @@ const ProductDetail = ({ id, title, price, description, category, image }) => {
       </div>
 
       <button
-        onClick={addToCart}
+        onClick={addCartItem}
         className="mt-auto p-2 text-xs md:text-sm bg-black text-white rounded-sm cursor-pointer transition duration-300 transform hover:scale-105"
       >
         Add to Cart
       </button>
-      <ToastContainer position="top-center" autoClose={2000} />
     </div>
   );
 };
