@@ -39,6 +39,7 @@ const Checkout = () => {
               )}
             </h1>
 
+            {/* Loops through items in redux store and outputs them */}
             {items.map((item, i) => (
               <CheckoutItem
                 key={i}
