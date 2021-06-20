@@ -3,7 +3,8 @@ import { addToCart, removeFromCart } from "../slices/cartSlice";
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
 import Image from "next/image";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const CheckoutItem = ({
   id,
@@ -64,6 +65,7 @@ const CheckoutItem = ({
           >
             Remove from Cart
           </button>
+          <ToastContainer position="top-center" autoClose={2000} />
         </div>
       </div>
     </div>

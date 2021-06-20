@@ -6,7 +6,6 @@ import { ShoppingBagIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import Currency from "react-currency-formatter";
 import { useSession } from "next-auth/client";
-import { ToastContainer } from "react-toastify";
 
 const Checkout = () => {
   const items = useSelector(selectItems);
@@ -78,7 +77,6 @@ const Checkout = () => {
           </div>
         )}
       </main>
-      <ToastContainer position="top-center" autoClose={2000} />
     </div>
   );
 };
