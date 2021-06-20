@@ -3,8 +3,6 @@ import { addToCart, removeFromCart } from "../slices/cartSlice";
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
 import Image from "next/image";
-import { ToastContainer, toast } from "react-toastify";
-
 
 const CheckoutItem = ({
   id,
@@ -30,13 +28,11 @@ const CheckoutItem = ({
 
     // Sending the product as an action to the REDUX store... the bakset slice
     dispatch(addToCart(product));
-    toast.success("Item added to cart!");
   };
 
   const removeItem = () => {
     // Remove item from redux
     dispatch(removeFromCart({ id }));
-    toast.success("Item removed from cart!");
   };
   return (
     <div className="grid grid-cols-4">
