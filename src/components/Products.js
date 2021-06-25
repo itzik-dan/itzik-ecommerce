@@ -2,7 +2,7 @@ import ProductDetail from "./ProductDetail";
 
 const Products = ({ productList }) => {
   return (
-    <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto">
+    <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 mx-auto">
       {productList.map(({ id, title, price, description, category, image }) => (
         <ProductDetail
           key={id}

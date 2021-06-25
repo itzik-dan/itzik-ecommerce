@@ -47,7 +47,7 @@ const CheckoutItem = ({
             ))}
         </div>
         <p className="text-xs my-2 line-clamp-3">{description}</p>
-        <Currency quantity={price} currency="GBP" />
+        <Currency quantity={price} currency="USD" />
         <div className="flex space-x-2 my-2">
           <button
             className="mt-auto p-2 text-xs md:text-sm bg-black text-white rounded-sm cursor-pointer"

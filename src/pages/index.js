@@ -4,11 +4,12 @@ import ProductCarousel from "../components/ProductCarousel";
 import Products from "../components/Products";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getSession } from "next-auth/client";
 
 export default function Home({productList}) {
   
   return (
-    <div className="bg-gray-400">
+    <div className="bg-gray-200">
       <Head>
         <title>Itzik Ecommerce</title>
       </Head>
@@ -27,7 +28,7 @@ export default function Home({productList}) {
 
 // Fetching products from API and server side render them
 export async function getServerSideProps(context) {
-  // const session = await getSession(context);
+  const session = await getSession(context);
   const productList = await fetch(
     "https://fakestoreapi.com/products"
   ).then((res) => res.json());
@@ -35,7 +36,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       productList,
-      // session,
+      session,
     },
   };
 }
