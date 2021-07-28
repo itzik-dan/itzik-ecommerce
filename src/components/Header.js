@@ -20,27 +20,18 @@ const Header = () => {
   return (
     <header>
       {/* Top nav */}
-      <div className="flex items-center bg-black p-1 flex-grow py-2">
+      <div className="flex justify-between items-center bg-black p-1 py-2">
+        {/* Left section logo */}
         <div
-          className="mt-2 flex items-center flex-grow sm:flex-grow-0 text-white cursor-pointer hover:underline"
+          className="mt-2 flex items-center  text-white cursor-pointer hover:underline"
           onClick={() => router.push("/")}
         >
           <ShoppingBagIcon className="h-12" />
           <h1 className="font-extrabold md:text-lg pr-2"> Itzik's Shop</h1>
         </div>
 
-        {/* Search */}
-        <div className="hidden sm:flex items-center h-10 rounded-md bg-yellow-600 hover:bg-yellow-700 flex-grow cursor-pointer">
-          <input
-            type="text"
-            className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none"
-            placeholder="Search Products..."
-          />
-          <SearchIcon className="h-12 p-4" />
-        </div>
-
         {/* Right */}
-        <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
+        <div className="text-white flex items-center text-xs space-x-6 mx-6">
           <div
             onClick={!session ? signIn : signOut}
             className="cursor-pointer hover:underline md:text-lg font-extrabold"
@@ -56,12 +47,11 @@ const Header = () => {
                   layout="fixed"
                 />
                 <p className="font-extrabold md:text-sm">
-                  {session.user.name.split(" ")[0]}{" "}
-                  <span>(Logout)</span>
+                  {session.user.name.split(" ")[0]} <span>(Logout)</span>
                 </p>
               </div>
             ) : (
-              <div className="cursor-pointer hover:underline flex items-center" >
+              <div className="cursor-pointer hover:underline flex items-center">
                 <LoginIcon className="h-10" />
                 <p className="hidden md:inline font-extrabold md:text-sm mt-2">
                   Login
